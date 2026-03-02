@@ -1,4 +1,4 @@
-# JoaoV9122-Engenharia-de-Prompt-e-Aplica-es-em-IA
+# Engenharia-de-Prompt-e-Aplica-es-em-IA
 ATIVIDADE Engenharia-de-Prompt-e-Aplica-es-em-IA
 
 Missão 01:
