@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyOxNGDR5g90UvIO9Sb1qQom",
+      "authorship_tag": "ABX9TyNpvcKqLnDJos+wXj2AUgQH",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -39,13 +39,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 1,
+      "execution_count": null,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "IdXuAD05V3Re",
-        "outputId": "dddc9248-a3e7-4f1f-bd0e-2113639ce489"
+        "outputId": "a69b187a-572c-4c6e-9636-bee5d8853f23"
       },
       "outputs": [
         {
@@ -53,30 +53,11 @@
           "name": "stdout",
           "text": [
             "=== Calculadora Simples ===\n",
-            "Operações disponíveis: +, -, *, /\n",
-            "Digite o primeiro número: 20\n",
-            "Digite o operador (+, -, *, /): -\n",
-            "Digite o segundo número: 20\n",
-            "Resultado: 0.0\n"
+            "Operações disponíveis: +, -, *, /\n"
           ]
         }
       ],
       "source": [
-        "def _perform_calculation(num1, operador, num2):\n",
-        "    \"\"\"Performs the arithmetic calculation based on the operator.\"\"\"\n",
-        "    if operador == \"+\":\n",
-        "        return num1 + num2\n",
-        "    elif operador == \"-\":\n",
-        "        return num1 - num2\n",
-        "    elif operador == \"*\":\n",
-        "        return num1 * num2\n",
-        "    elif operador == \"/\":\n",
-        "        if num2 == 0:\n",
-        "            raise ZeroDivisionError(\"Erro: divisão por zero não é permitida.\")\n",
-        "        return num1 / num2\n",
-        "    else:\n",
-        "        raise ValueError(\"Operador inválido.\")\n",
-        "\n",
         "def calculadora():\n",
         "    print(\"=== Calculadora Simples ===\")\n",
         "    print(\"Operações disponíveis: +, -, *, /\")\n",
@@ -86,16 +67,26 @@
         "        operador = input(\"Digite o operador (+, -, *, /): \")\n",
         "        num2 = float(input(\"Digite o segundo número: \"))\n",
         "\n",
-        "        resultado = _perform_calculation(num1, operador, num2)\n",
+        "        if operador == \"+\":\n",
+        "            resultado = num1 + num2\n",
+        "        elif operador == \"-\":\n",
+        "            resultado = num1 - num2\n",
+        "        elif operador == \"*\":\n",
+        "            resultado = num1 * num2\n",
+        "        elif operador == \"/\":\n",
+        "            if num2 == 0:\n",
+        "                print(\"Erro: divisão por zero não é permitida.\")\n",
+        "                return\n",
+        "            resultado = num1 / num2\n",
+        "        else:\n",
+        "            print(\"Operador inválido.\")\n",
+        "            return\n",
+        "\n",
         "        print(f\"Resultado: {resultado}\")\n",
         "\n",
         "    except ValueError:\n",
-        "        print(\"Erro: entrada inválida ou operador inválido. Digite apenas números e operadores válidos.\")\n",
-        "    except ZeroDivisionError as e:\n",
-        "        print(e)\n",
-        "    except Exception as e:\n",
-        "        # Catch any other unexpected errors\n",
-        "        print(f\"Ocorreu um erro inesperado: {e}\")\n",
+        "        print(\"Erro: entrada inválida. Digite apenas números.\")\n",
+        "\n",
         "\n",
         "calculadora()"
       ]
