@@ -1,0 +1,104 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOxNGDR5g90UvIO9Sb1qQom",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/JoaoV9122/JoaoV9122-Engenharia-de-Prompt-e-Aplica-es-em-IA/blob/main/mini%20projeto\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "\n",
+        "** ATIVIDADE Mini Projeto Calculadora 06/04\n"
+      ],
+      "metadata": {
+        "id": "gc4wj4gaeMdH"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IdXuAD05V3Re",
+        "outputId": "dddc9248-a3e7-4f1f-bd0e-2113639ce489"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "=== Calculadora Simples ===\n",
+            "Operações disponíveis: +, -, *, /\n",
+            "Digite o primeiro número: 20\n",
+            "Digite o operador (+, -, *, /): -\n",
+            "Digite o segundo número: 20\n",
+            "Resultado: 0.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "def _perform_calculation(num1, operador, num2):\n",
+        "    \"\"\"Performs the arithmetic calculation based on the operator.\"\"\"\n",
+        "    if operador == \"+\":\n",
+        "        return num1 + num2\n",
+        "    elif operador == \"-\":\n",
+        "        return num1 - num2\n",
+        "    elif operador == \"*\":\n",
+        "        return num1 * num2\n",
+        "    elif operador == \"/\":\n",
+        "        if num2 == 0:\n",
+        "            raise ZeroDivisionError(\"Erro: divisão por zero não é permitida.\")\n",
+        "        return num1 / num2\n",
+        "    else:\n",
+        "        raise ValueError(\"Operador inválido.\")\n",
+        "\n",
+        "def calculadora():\n",
+        "    print(\"=== Calculadora Simples ===\")\n",
+        "    print(\"Operações disponíveis: +, -, *, /\")\n",
+        "\n",
+        "    try:\n",
+        "        num1 = float(input(\"Digite o primeiro número: \"))\n",
+        "        operador = input(\"Digite o operador (+, -, *, /): \")\n",
+        "        num2 = float(input(\"Digite o segundo número: \"))\n",
+        "\n",
+        "        resultado = _perform_calculation(num1, operador, num2)\n",
+        "        print(f\"Resultado: {resultado}\")\n",
+        "\n",
+        "    except ValueError:\n",
+        "        print(\"Erro: entrada inválida ou operador inválido. Digite apenas números e operadores válidos.\")\n",
+        "    except ZeroDivisionError as e:\n",
+        "        print(e)\n",
+        "    except Exception as e:\n",
+        "        # Catch any other unexpected errors\n",
+        "        print(f\"Ocorreu um erro inesperado: {e}\")\n",
+        "\n",
+        "calculadora()"
+      ]
+    }
+  ]
+}
